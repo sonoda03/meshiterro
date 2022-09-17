@@ -15,6 +15,6 @@ Rails.application.routes.draw do
   
   # get 'users/show'
   # get 'users/edit'
-  resources :users, only: [:show, :edit]
+  resources :users, only: [:show, :edit, :update]
   
 end
