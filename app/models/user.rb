@@ -4,8 +4,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  #User モデルに PostImage モデルを関連付け
+  
+  
+  #PostImage モデルを1:Nの関係実装
   has_many :post_images, dependent: :destroy
+  
+  #PostCommentモデルとの1:Nの関係実装
+  has_many :post_comments, dependent: :destroy
+  
+  
   
   #profile_imageという名前でActiveStorageでプロフィール画像を保存できるように設定
   has_one_attached :profile_image

@@ -5,6 +5,11 @@ class PostImage < ApplicationRecord
   #PostImage モデルに User モデルを関連付ける
   belongs_to :user
   
+  #PostCommentモデルとの1:Nの関係実装
+  has_many :post_comments, dependent: :destroy
+  
+  
+  
   #no_image.jpgという画像をデフォルト画像としてActiveStorageに格納し、
   #格納した画像を表示する
   def get_image
