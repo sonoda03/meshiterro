@@ -8,6 +8,11 @@ class PostImage < ApplicationRecord
   #PostCommentモデルとの1:Nの関係実装
   has_many :post_comments, dependent: :destroy
   
+  has_many :favorites, dependent: :destroy
+  
+  def favorited_by?(user)
+    favorites.exists?(user_id: user.id)
+  end
   
   
   #no_image.jpgという画像をデフォルト画像としてActiveStorageに格納し、

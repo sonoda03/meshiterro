@@ -12,6 +12,8 @@ class User < ApplicationRecord
   #PostCommentモデルとの1:Nの関係実装
   has_many :post_comments, dependent: :destroy
   
+  has_many :favorites, dependent: :destroy
+  
   
   
   #profile_imageという名前でActiveStorageでプロフィール画像を保存できるように設定
