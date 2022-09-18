@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+  #ログイン認証が成功していないと、
+  #トップページ以外の画面（ログインと新規登録は除く）は表示できない仕様
+  before_action :authenticate_user!, except: [:top]
   
   before_action :configure_permitted_parameters, if: :devise_controller?
   
