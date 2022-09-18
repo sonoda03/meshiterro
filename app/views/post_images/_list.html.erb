@@ -14,3 +14,6 @@
   <p><%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %></p>
 </div>
 <% end %>
+<!--kaminariをインストールし、
+データの中身を指定単位ごとに閲覧できるページ送り機能を使えるようにする-->
+<%= paginate post_images %>

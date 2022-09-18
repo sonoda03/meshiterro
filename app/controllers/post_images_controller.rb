@@ -22,7 +22,14 @@ class PostImagesController < ApplicationController
   end
 
   def index
-    @post_images = PostImage.all
+    #⇓postimagesテーブル内の全データが取得
+    # @post_images = PostImage.all
+    
+    # 1ページ分の決められた数のデータだけを、新しい順に取得
+    # pageメソッドは、
+    # kaminariをインストールしたことで使用可能になったメソッド
+    @post_images = PostImage.page(params[:page])
+    
   end
 
   def show
